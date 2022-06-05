@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "458272808892",
+    "project_id": "shadid-3d153",
+    "storage_bucket": "shadid-3d153.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:458272808892:android:631b45e12fd04036fa55b9",
+        "android_client_info": {
+          "package_name": "com.example.shadid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "458272808892-10ennj76oi4hh0ia61s0ns9ucc4e37g2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtCJXrg6_Rpm7J1BUvKx8733ERmkuVKZQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "458272808892-10ennj76oi4hh0ia61s0ns9ucc4e37g2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
