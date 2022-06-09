@@ -298,6 +298,9 @@ class _CaptainHomeState extends State<CaptainHome> {
                         ),
                       ],
                     ),
+                    const SizedBox(
+                      height: 30.0,
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -317,6 +320,9 @@ class _CaptainHomeState extends State<CaptainHome> {
                           child: const Text('الكل'),
                         ),
                       ],
+                    ),
+                    const SizedBox(
+                      height: 10.0,
                     ),
                     Container(
                       padding: const EdgeInsets.all(20.0),
