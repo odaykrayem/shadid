@@ -19,12 +19,7 @@ Future<void> main() async {
       systemNavigationBarIconBrightness: Brightness.dark,
     ),
   );
-  // SystemChrome.setEnabledSystemUIMode(
-  //   SystemUiMode.manual,
-  //   overlays: [
-  //     SystemUiOverlay.top,
-  //   ],
-  // );
+  
   runApp(const MyApp());
 }
 
