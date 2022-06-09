@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:shadid/localization/localization.dart';
 import 'package:shadid/model/cacheHelper.dart';
-import 'package:shadid/view/auth/register.dart';
+import 'package:shadid/view/pages/captain_pages/captain_home.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,7 +21,7 @@ Future<void> main() async {
 
   runApp(const MyApp());
 }
- 
+
 class MyApp extends StatefulWidget {
   static void setLocale(BuildContext context, Locale locale) {
     _MyAppState? state = context.findAncestorStateOfType<_MyAppState>();
@@ -50,7 +50,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         fontFamily: 'Tajawal',
       ),
-      home: SafeArea(child: Register()),
+      home: SafeArea(child: CaptainHome()),
       locale: _locale,
       supportedLocales: [
         const Locale('ar', 'SA'),
