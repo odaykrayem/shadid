@@ -5,7 +5,6 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:shadid/localization/localization.dart';
 import 'package:shadid/model/cacheHelper.dart';
 import 'package:shadid/view/auth/register.dart';
-import 'package:shadid/view/pages/user_pages/user_home.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,7 +18,7 @@ Future<void> main() async {
       systemNavigationBarIconBrightness: Brightness.dark,
     ),
   );
-  
+
   runApp(const MyApp());
 }
 
