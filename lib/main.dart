@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:shadid/localization/localization.dart';
 import 'package:shadid/model/cacheHelper.dart';
-import 'package:shadid/view/auth/auth_captain/captain_register.dart';
+import 'package:shadid/view/pages/captain_pages/captain_home.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -50,7 +50,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         fontFamily: 'Tajawal',
       ),
-      home: SafeArea(child: CaptainRegister()),
+      home: SafeArea(child: CaptainHome()),
       locale: _locale,
       supportedLocales: [
         const Locale('ar', 'SA'),
