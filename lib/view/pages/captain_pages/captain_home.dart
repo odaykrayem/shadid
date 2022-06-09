@@ -187,6 +187,7 @@ class _CaptainHomeState extends State<CaptainHome> {
                 )
               else
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -296,6 +297,78 @@ class _CaptainHomeState extends State<CaptainHome> {
                           ],
                         ),
                       ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text('آخر الطلبات المنجزة'),
+                        TextButton(
+                          onPressed: () {},
+                          style: ButtonStyle(
+                            foregroundColor:
+                                MaterialStateProperty.all(primaryColor),
+                            textStyle: MaterialStateProperty.all(
+                              const TextStyle(
+                                fontSize: 12.0,
+                                fontFamily: 'Tajawal',
+                              ),
+                            ),
+                          ),
+                          child: const Text('الكل'),
+                        ),
+                      ],
+                    ),
+                    Container(
+                      padding: const EdgeInsets.all(20.0),
+                      decoration: BoxDecoration(
+                        color: Colors.grey[100],
+                        borderRadius: BorderRadius.circular(6.0),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: const [
+                                  Text('نقل سريع'),
+                                  SizedBox(
+                                    height: 10.0,
+                                  ),
+                                  Text(
+                                    'Ford Focus 2022',
+                                    style: TextStyle(
+                                      color: Colors.grey,
+                                      fontSize: 14.0,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Container(
+                                padding: const EdgeInsets.all(6.0),
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                  color: primaryColor,
+                                  borderRadius: BorderRadius.circular(5.0),
+                                ),
+                                child: const Text(
+                                  'تم التوصيل',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 12.0,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 15.0,
+                          ),
+                          const Text('توصيل صندوق مستلزمات سباكة للبيت'),
+                        ],
+                      ),
                     ),
                   ],
                 ),
