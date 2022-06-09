@@ -21,7 +21,7 @@ Future<void> main() async {
 
   runApp(const MyApp());
 }
-
+ 
 class MyApp extends StatefulWidget {
   static void setLocale(BuildContext context, Locale locale) {
     _MyAppState? state = context.findAncestorStateOfType<_MyAppState>();
