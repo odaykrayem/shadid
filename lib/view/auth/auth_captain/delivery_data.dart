@@ -18,36 +18,11 @@ class DeliveryData extends StatefulWidget {
 }
 
 class _DeliveryDataState extends State<DeliveryData> {
-  final List<dynamic> _testList = [
-    {'gender': 'ذكر'},
-    {'gender': 'انثى'}
-  ];
-  late List<DropdownMenuItem> _dropdownTestItem;
-  var _selectedTest;
-  List<DropdownMenuItem> buildDropdownTestItems(List testList) {
-    List<DropdownMenuItem> items = [];
-    for (var i in testList) {
-      items.add(
-        DropdownMenuItem(
-          value: i,
-          child: Text(i['gender']),
-        ),
-      );
-    }
-    return items;
-  }
-
-  onChangeDropdownTests(selectedTest) {
-    setState(() {
-      _selectedTest = selectedTest;
-    });
-  }
-
   CaptainRegister? captainRegister;
   @override
   void initState() {
     super.initState();
-    _dropdownTestItem = buildDropdownTestItems(_testList);
+    _dropdownTypeItem = buildDropdownTypeItems(_typeList);
   }
 
   var serviceTypeCon = TextEditingController();
@@ -76,7 +51,7 @@ class _DeliveryDataState extends State<DeliveryData> {
             CustomDropdownButton(
               context: context,
               onBoxStateChanged: (change) => true,
-              items: _dropdownTestItem,
+              items: _dropdownTypeItem,
               onChanged: onChangeDropdownTests,
               value: _selectedTest,
               hint:
@@ -155,7 +130,7 @@ class _DeliveryDataState extends State<DeliveryData> {
             CustomDropdownButton(
               context: context,
               onBoxStateChanged: (change) => true,
-              items: _dropdownTestItem,
+              items: _dropdownTypeItem,
               onChanged: onChangeDropdownTests,
               value: _selectedTest,
               hint:
@@ -167,7 +142,7 @@ class _DeliveryDataState extends State<DeliveryData> {
             CustomDropdownButton(
               context: context,
               onBoxStateChanged: (change) => true,
-              items: _dropdownTestItem,
+              items: _dropdownTypeItem,
               onChanged: onChangeDropdownTests,
               value: _selectedTest,
               hint:
@@ -177,5 +152,32 @@ class _DeliveryDataState extends State<DeliveryData> {
         ),
       ),
     );
+  }
+
+  // Type Captain ...
+  final List<dynamic> _typeList = [
+    {'type': 'فرد'},
+    {'type': 'شركة'},
+    {'type': 'مؤسسة'}
+  ];
+  late List<DropdownMenuItem> _dropdownTypeItem;
+  var _selectedTest;
+  List<DropdownMenuItem> buildDropdownTypeItems(List testList) {
+    List<DropdownMenuItem> items = [];
+    for (var i in testList) {
+      items.add(
+        DropdownMenuItem(
+          value: i,
+          child: Text(i['type']),
+        ),
+      );
+    }
+    return items;
+  }
+
+  onChangeDropdownTests(selectedTest) {
+    setState(() {
+      _selectedTest = selectedTest;
+    });
   }
 }

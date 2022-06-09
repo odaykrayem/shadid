@@ -129,10 +129,6 @@ class _DeliveryNumberState extends State<DeliveryNumber> {
                         fontSize: 0.0,
                         height: 0.0,
                       ),
-                      hintText: '0123456789',
-                      hintStyle: const TextStyle(
-                        height: 0.7,
-                      ),
                       filled: true,
                       fillColor: Colors.grey[100],
                       border: OutlineInputBorder(

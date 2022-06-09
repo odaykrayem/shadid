@@ -13,6 +13,7 @@ Widget CustomDropdownButton({
 }) {
   return Container(
     height: 50.0,
+    alignment: Alignment.center,
     decoration: BoxDecoration(
       color: Colors.grey[100],
       borderRadius: BorderRadius.circular(5.0),
@@ -20,7 +21,7 @@ Widget CustomDropdownButton({
     child: DropdownBelow<dynamic>(
       icon: const Icon(Icons.keyboard_arrow_down_rounded),
       boxPadding: const EdgeInsets.symmetric(horizontal: 16.0),
-      itemWidth: MediaQuery.of(context).size.width * 0.5,
+      itemWidth: MediaQuery.of(context).size.width / 2,
       boxHeight: 50.0,
       itemTextstyle: const TextStyle(
         color: Colors.black,
