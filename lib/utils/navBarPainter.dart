@@ -58,7 +58,7 @@ class NavBarPainter extends CustomPainter {
     path_0.close();
 
     Paint paint0Fill = Paint()..style = PaintingStyle.fill;
-    paint0Fill.color = Colors.grey[50]!;
+    paint0Fill.color = Colors.grey[100]!;
     canvas.drawPath(path_0, paint0Fill);
   }
 

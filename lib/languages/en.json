@@ -42,7 +42,7 @@
   "home": "Home",
   "orders": "Orders",
   "messages": "Messages",
-  "myAccount": "My Account",
+  "myAccount": "Account",
   "notifications": "Notifications",
   "pickUp": "Pick-up",
   "putListEveryThings": "List all the things you want to move / Are there any other important details you would like to add ?",
@@ -112,6 +112,8 @@
   "authorizationCar": "Authorization car",
   "ifYouAuthorizedCar": "If you are authorized to the car",
   "register": "Register",
-  "makeSureUploadReqImg":"Make sure to upload all required photos"
-
+  "makeSureUploadReqImg":"Make sure to upload all required photos",
+  "searchLog":"Recent searches",
+  "emptyLog":"Record is empty",
+  "recomendedServices":"Most requested services"
 }

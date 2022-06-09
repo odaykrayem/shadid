@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:shadid/localization/localization.dart';
 import 'package:shadid/model/cacheHelper.dart';
-import 'package:shadid/view/pages/splash.dart';
+import 'package:shadid/view/auth/register.dart';
 import 'package:shadid/view/pages/user_pages/user_home.dart';
 
 Future<void> main() async {
@@ -12,17 +12,19 @@ Future<void> main() async {
   await Firebase.initializeApp();
   await CacheHelper.init();
   SystemChrome.setSystemUIOverlayStyle(
-    const SystemUiOverlayStyle(
+    SystemUiOverlayStyle(
       statusBarColor: Colors.white,
-      statusBarBrightness: Brightness.dark,
+      statusBarIconBrightness: Brightness.dark,
+      systemNavigationBarColor: Colors.grey[100],
+      systemNavigationBarIconBrightness: Brightness.dark,
     ),
   );
-  SystemChrome.setEnabledSystemUIMode(
-    SystemUiMode.manual,
-    overlays: [
-      // SystemUiOverlay.top,
-    ],
-  );
+  // SystemChrome.setEnabledSystemUIMode(
+  //   SystemUiMode.manual,
+  //   overlays: [
+  //     SystemUiOverlay.top,
+  //   ],
+  // );
   runApp(const MyApp());
 }
 
@@ -54,7 +56,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         fontFamily: 'Tajawal',
       ),
-      home: const Splash(),
+      home: SafeArea(child: Register()),
       locale: _locale,
       supportedLocales: [
         const Locale('ar', 'SA'),

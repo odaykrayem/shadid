@@ -34,7 +34,9 @@ class _RegisterState extends State<Register> {
   Widget build(BuildContext context) {
     return Scaffold(
         resizeToAvoidBottomInset: false,
+        backgroundColor: Colors.white,
         appBar: AppBar(
+          backgroundColor: Colors.white,
           toolbarHeight: 75.0,
           titleTextStyle: const TextStyle(
             color: Colors.black,
@@ -45,7 +47,6 @@ class _RegisterState extends State<Register> {
           title: Text(
             '${AppLocalization.of(context)?.getTranslatedValue('createAccount')}',
           ),
-          backgroundColor: Colors.grey[50],
           elevation: 0.0,
         ),
         body: Padding(
@@ -145,10 +146,6 @@ class _RegisterState extends State<Register> {
                   decoration: InputDecoration(
                     errorStyle: const TextStyle(
                       fontSize: 0.0,
-                      height: 0.0,
-                    ),
-                    hintText: '0123456789',
-                    hintStyle: const TextStyle(
                       height: 0.0,
                     ),
                     border: OutlineInputBorder(
