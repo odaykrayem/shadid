@@ -10,7 +10,7 @@ import 'package:shadid/view/pages/splash.dart';
 import 'package:shadid/view/pages/user_pages/massages.dart';
 import 'package:shadid/view/pages/user_pages/my_account.dart';
 import 'package:shadid/view/pages/user_pages/orders.dart';
- import 'package:shadid/view/pages/user_pages/user_mainPage.dart';
+import 'package:shadid/view/pages/user_pages/user_mainPage.dart';
 
 enum SearchOptions { open, close }
 
@@ -48,7 +48,7 @@ class _UserHomeState extends State<UserHome> {
                     return UserMainPage();
                   }
                   if (indexPage == 1) {
-                    return   Orders();
+                    return Orders();
                   }
                   if (indexPage == 2) {
                     return const Massages();
@@ -98,6 +98,8 @@ class _UserHomeState extends State<UserHome> {
                                         ? primaryColor
                                         : Colors.grey[700],
                                   ),
+                                  textAlign: TextAlign
+                                      .center, //this to look better in english version 5 inches screen
                                 ),
                               ],
                             ),
@@ -130,6 +132,8 @@ class _UserHomeState extends State<UserHome> {
                                         ? primaryColor
                                         : Colors.grey[700],
                                   ),
+                                  textAlign: TextAlign
+                                      .center, //this to look better in english version 5 inches screen
                                 ),
                               ],
                             ),
@@ -182,6 +186,8 @@ class _UserHomeState extends State<UserHome> {
                                         ? primaryColor
                                         : Colors.grey[700],
                                   ),
+                                  textAlign: TextAlign
+                                      .center, //this to look better in english version 5 inches screen
                                 ),
                               ],
                             ),
@@ -214,6 +220,8 @@ class _UserHomeState extends State<UserHome> {
                                         ? primaryColor
                                         : Colors.grey[700],
                                   ),
+                                  textAlign: TextAlign
+                                      .center, //this to look better in english version 5 inches screen
                                 ),
                               ],
                             ),

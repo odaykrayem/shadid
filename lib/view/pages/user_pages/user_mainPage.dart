@@ -248,6 +248,7 @@ class _UserMainPageState extends State<UserMainPage> {
               ),
             )
           : Scaffold(
+              resizeToAvoidBottomInset: false,
               backgroundColor: Colors.white,
               body: Padding(
                 padding: const EdgeInsets.all(20.0),

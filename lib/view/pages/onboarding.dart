@@ -87,7 +87,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       children: [
                         Image.asset(
                           contents[i].image,
-                          // height: SizeConfig.blockV! * 35,
+                          height: SizeConfig.blockV! * 35,
                           width: MediaQuery.of(context).size.width,
                           fit: BoxFit.cover,
                         ),
@@ -128,7 +128,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   _currentPage + 1 == contents.length
                       ? Padding(
                           padding: const EdgeInsets.only(
-                              bottom: 120.0, right: 20.0, left: 20.0),
+                            // bottom: 120.0, //this value make an overflow on 5 inches screens
+                            bottom: 100.0,
+                            right: 20.0,
+                            left: 20.0,
+                          ),
                           child: CustomButton(
                             onPressed: () {
                               Navigator.pushAndRemoveUntil(context,
@@ -136,7 +140,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                 return Register();
                               }), (route) => false);
                             },
-                            title: '${AppLocalization.of(context)?.getTranslatedValue('startNow')}',
+                            title:
+                                '${AppLocalization.of(context)?.getTranslatedValue('startNow')}',
                             context: context,
                           ),
                         )
@@ -150,7 +155,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                 curve: Curves.easeIn,
                               );
                             },
-                            title:'${AppLocalization.of(context)?.getTranslatedValue('next')}',
+                            title:
+                                '${AppLocalization.of(context)?.getTranslatedValue('next')}',
                             context: context,
                           ),
                         ),
