@@ -6,6 +6,10 @@ import 'package:shadid/utils/captain_icons_icons.dart';
 import 'package:shadid/utils/constant.dart';
 import 'package:shadid/utils/custom_icon_icons.dart';
 import 'package:shadid/view/pages/captain_pages/captain_mainPage.dart';
+import 'package:shadid/view/pages/captain_pages/massages_captain.dart';
+import 'package:shadid/view/pages/captain_pages/orders_captain.dart';
+import 'package:shadid/view/pages/captain_pages/profile_captain.dart';
+import 'package:shadid/view/pages/user_pages/massages.dart';
 import 'package:shadid/view/pages/user_pages/notifications.dart';
 
 enum SearchOptions { open, close }
@@ -54,7 +58,13 @@ class _CaptainHomeState extends State<CaptainHome> {
           if (_currentIndex == 0) {
             return const CaptainMainPage();
           }
-          return Container();
+          if (_currentIndex == 1) {
+            return const OrdersCaptain();
+          }
+          if (_currentIndex == 2) {
+            return const MassagesCaptain();
+          }
+          return const ProfileCaptain();
         },
       ),
     );
