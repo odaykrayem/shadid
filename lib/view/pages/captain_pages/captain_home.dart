@@ -1,5 +1,6 @@
 import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:shadid/localization/localization.dart';
 import 'package:shadid/utils/captain_icons_icons.dart';
 import 'package:shadid/utils/constant.dart';
 import 'package:shadid/view/pages/captain_pages/captain_mainPage.dart';
@@ -88,7 +89,7 @@ class _CaptainHomeState extends State<CaptainHome> {
             title: Padding(
               padding: const EdgeInsets.only(top: 8.0),
               child: Text(
-                "الرئيسية",
+                '${AppLocalization.of(context)?.getTranslatedValue('home')}',
                 style: TextStyle(
                   fontSize: 12.0,
                   color: _currentIndex == 0 ? primaryColor : Colors.grey[700],
@@ -101,7 +102,7 @@ class _CaptainHomeState extends State<CaptainHome> {
             title: Padding(
               padding: const EdgeInsets.only(top: 8.0),
               child: Text(
-                "طلباتي",
+                '${AppLocalization.of(context)?.getTranslatedValue('myOrders')}',
                 style: TextStyle(
                   fontSize: 12.0,
                   color: _currentIndex == 1 ? primaryColor : Colors.grey[700],
@@ -114,7 +115,7 @@ class _CaptainHomeState extends State<CaptainHome> {
             title: Padding(
               padding: const EdgeInsets.only(top: 8.0),
               child: Text(
-                "الرسائل",
+                '${AppLocalization.of(context)?.getTranslatedValue('massages')}',
                 style: TextStyle(
                   fontSize: 12.0,
                   color: _currentIndex == 2 ? primaryColor : Colors.grey[700],
@@ -127,7 +128,7 @@ class _CaptainHomeState extends State<CaptainHome> {
             title: Padding(
               padding: const EdgeInsets.only(top: 8.0),
               child: Text(
-                "بروفايلي",
+                '${AppLocalization.of(context)?.getTranslatedValue('myProfile')}',
                 style: TextStyle(
                   fontSize: 12.0,
                   color: _currentIndex == 3 ? primaryColor : Colors.grey[700],

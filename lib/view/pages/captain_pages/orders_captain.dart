@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shadid/localization/localization.dart';
 import 'package:shadid/utils/constant.dart';
 
 enum OrdersTypes { availableOffers, previousOffers }
@@ -12,28 +13,32 @@ class OrdersCaptain extends StatefulWidget {
 
 class _OrdersCaptainState extends State<OrdersCaptain> {
   OrdersTypes orderType = OrdersTypes.availableOffers;
-  List<Map<String, dynamic>> previousOffersList = [
-    {
-      'orderStatus': 'ملغي',
-      'orderNumber': '#158756',
-      'orderDate': '22/11/2022',
-      'order': 'توصيل أثاث و أغراض',
-    },
-    {
-      'orderStatus': 'مكتمل',
-      'orderNumber': '#153773',
-      'orderDate': '15/8/2022',
-      'order': 'توصيل أدوات كهربائية',
-    },
-    {
-      'orderStatus': 'مكتمل',
-      'orderNumber': '#174293',
-      'orderDate': '13/10/2022',
-      'order': 'توصيل مركبة',
-    },
-  ];
+
   @override
   Widget build(BuildContext context) {
+    List<Map<String, dynamic>> previousOffersList = [
+      {
+        'orderStatus':
+            '${AppLocalization.of(context)?.getTranslatedValue('canceled')}',
+        'orderNumber': '#158756',
+        'orderDate': '22/11/2022',
+        'order': 'توصيل أثاث و أغراض',
+      },
+      {
+        'orderStatus':
+            '${AppLocalization.of(context)?.getTranslatedValue('completed')}',
+        'orderNumber': '#153773',
+        'orderDate': '15/8/2022',
+        'order': 'توصيل أدوات كهربائية',
+      },
+      {
+        'orderStatus':
+            '${AppLocalization.of(context)?.getTranslatedValue('completed')}',
+        'orderNumber': '#174293',
+        'orderDate': '13/10/2022',
+        'order': 'توصيل مركبة',
+      },
+    ];
     return Scaffold(
       backgroundColor: Colors.white,
       body: NotificationListener<OverscrollIndicatorNotification>(
@@ -76,7 +81,7 @@ class _OrdersCaptainState extends State<OrdersCaptain> {
                             borderRadius: BorderRadius.circular(6.0),
                           ),
                           child: Text(
-                            'العروض المتاحة',
+                            '${AppLocalization.of(context)?.getTranslatedValue('availableOffers')}',
                             style: TextStyle(
                               color: orderType == OrdersTypes.availableOffers
                                   ? Colors.white
@@ -109,7 +114,7 @@ class _OrdersCaptainState extends State<OrdersCaptain> {
                             borderRadius: BorderRadius.circular(6.0),
                           ),
                           child: Text(
-                            'العروض السابقة',
+                            '${AppLocalization.of(context)?.getTranslatedValue('previousOffers')}',
                             style: TextStyle(
                               color: orderType == OrdersTypes.previousOffers
                                   ? Colors.white
@@ -170,10 +175,10 @@ class _OrdersCaptainState extends State<OrdersCaptain> {
                         orderNumber: previousOffersList[i]['orderNumber'],
                         orderDate: previousOffersList[i]['orderDate'],
                         order: previousOffersList[i]['order'],
-                        statusColor:
-                            previousOffersList[i]['orderStatus'] == 'ملغي'
-                                ? Colors.red
-                                : primaryColor,
+                        statusColor: previousOffersList[i]['orderStatus'] ==
+                                '${AppLocalization.of(context)?.getTranslatedValue('canceled')}'
+                            ? Colors.red
+                            : primaryColor,
                       );
                     },
                   ),
@@ -215,7 +220,7 @@ class _OrdersCaptainState extends State<OrdersCaptain> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Text(
-                'منذ 5د',
+                '${AppLocalization.of(context)?.getTranslatedValue('since')} 5د',
                 style: TextStyle(
                   color: primaryColor,
                 ),
@@ -230,9 +235,9 @@ class _OrdersCaptainState extends State<OrdersCaptain> {
                     color: primaryColor,
                     borderRadius: BorderRadius.circular(5.0),
                   ),
-                  child: const Text(
-                    'قدم',
-                    style: TextStyle(
+                  child: Text(
+                    '${AppLocalization.of(context)?.getTranslatedValue('presented')}',
+                    style: const TextStyle(
                       color: Colors.white,
                       fontSize: 12.0,
                     ),
