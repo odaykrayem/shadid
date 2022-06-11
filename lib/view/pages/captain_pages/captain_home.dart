@@ -111,7 +111,7 @@ class _CaptainHomeState extends State<CaptainHome> {
             ),
           ),
           CustomNavigationBarItem(
-            icon: const Icon(CaptainIcons.massages),
+            icon: const Icon(Icons.chat_rounded),
             title: Padding(
               padding: const EdgeInsets.only(top: 8.0),
               child: Text(
