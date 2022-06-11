@@ -1,16 +1,11 @@
 import 'package:custom_navigation_bar/custom_navigation_bar.dart';
-import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
-import 'package:shadid/localization/localization.dart';
 import 'package:shadid/utils/captain_icons_icons.dart';
 import 'package:shadid/utils/constant.dart';
-import 'package:shadid/utils/custom_icon_icons.dart';
 import 'package:shadid/view/pages/captain_pages/captain_mainPage.dart';
 import 'package:shadid/view/pages/captain_pages/massages_captain.dart';
 import 'package:shadid/view/pages/captain_pages/orders_captain.dart';
 import 'package:shadid/view/pages/captain_pages/profile_captain.dart';
-import 'package:shadid/view/pages/user_pages/massages.dart';
-import 'package:shadid/view/pages/user_pages/notifications.dart';
 
 enum SearchOptions { open, close }
 
@@ -49,9 +44,16 @@ class _CaptainHomeState extends State<CaptainHome> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 20.0),
-        child: CustomBottomNavBar(),
+      bottomNavigationBar: ClipRRect(
+        clipBehavior: Clip.none,
+        child: Container(
+          padding: const EdgeInsets.only(
+            top: 10.0,
+            bottom: 20.0,
+          ),
+          color: Colors.transparent,
+          child: CustomBottomNavBar(),
+        ),
       ),
       body: Builder(
         builder: (context) {
