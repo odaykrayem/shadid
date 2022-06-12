@@ -33,13 +33,7 @@ class _CaptainHomeState extends State<CaptainHome> {
   CaptainAccountStatus accountStatus = CaptainAccountStatus.active;
   SearchOptions option = SearchOptions.close;
 
-  // FirebaseAuth? _auth;
-
-  // Future<void> _signOut() async {
-  //   await FirebaseAuth.instance.signOut();
-  //   debugPrint(_auth?.currentUser?.phoneNumber);
-
-  // }
+  
   int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {

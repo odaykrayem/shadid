@@ -126,12 +126,16 @@
     "myOrders": "طلباتي",
     "massages": "الرسائل",
     "myProfile": "بروفايلي",
-    "stayClose":"خليك قريب",
-    "massageBeforAcitve":"سيتم التواصل معك قريباً في حال تمت\nالموافقة على طلبك و سنستغرق هذه\nالخطوة 25 ساعة",
-    "availableOffers":"العروض المتاحة",
-    "previousOffers":"العروض السابقة",
-    "since":"منذ",
-    "presented":"قدم",
-    "canceled":"ملغي"
-
+    "stayClose": "خليك قريب",
+    "massageBeforAcitve": "سيتم التواصل معك قريباً في حال تمت\nالموافقة على طلبك و سنستغرق هذه\nالخطوة 25 ساعة",
+    "availableOffers": "العروض المتاحة",
+    "previousOffers": "العروض السابقة",
+    "since": "منذ",
+    "presented": "قدم",
+    "canceled": "ملغي",
+    "latestMassages": "أحدث الرسائل",
+    "previousMassages": "الرسائل السابقة",
+    "minute": "دقيقة",
+    "hour": "ساعة",
+    "day": "يوم"
 }

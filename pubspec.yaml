@@ -51,6 +51,10 @@ dependencies:
   animated_text_kit:
   simple_star_rating:
   custom_navigation_bar:
+  bloc: ^7.2.1
+  flutter_bloc: ^7.3.1
+  dio: ^4.0.4
+
   
 dev_dependencies:
   flutter_test:
@@ -103,7 +107,11 @@ flutter:
         
     - family: CaptainIcons
       fonts:
-        - asset: assets/fonts/CaptainIcons.ttf        
+        - asset: assets/fonts/CaptainIcons.ttf
+
+    - family: CaptainProfileIcons
+      fonts:
+        - asset: assets/fonts/CaptainProfileIcons.ttf         
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
