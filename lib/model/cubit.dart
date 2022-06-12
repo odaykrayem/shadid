@@ -7,6 +7,9 @@ import 'package:shadid/model/loginModel.dart';
 import 'package:shadid/model/states.dart';
 import 'package:shadid/utils/constant.dart';
 
+
+
+ 
 // class LoginCubit extends Cubit<LoginStates> {
 //   LoginCubit() : super(LoginInitialState());
 
@@ -40,17 +43,18 @@ import 'package:shadid/utils/constant.dart';
 //
 //
 
-class RegisterCubit extends Cubit<RegisterStates> {
-  RegisterCubit() : super(RegisterInitialState());
+// Register User Cubit
+class RegisterUserCubit extends Cubit<RegisterUserStates> {
+  RegisterUserCubit() : super(RegisterUserInitialState());
 
-  static RegisterCubit get(context) => BlocProvider.of(context);
+  static RegisterUserCubit get(context) => BlocProvider.of(context);
 
   late UserData loginModel;
 
   void userRegister({
     required String phone,
   }) {
-    emit(RegisterLoadingState());
+    emit(RegisterUserLoadingState());
     DioHelper.postData(
       url: USER,
       data: {
@@ -59,47 +63,76 @@ class RegisterCubit extends Cubit<RegisterStates> {
     ).then((value) {
       loginModel = UserData.fromJson(value?.data);
       print(value?.data);
-      emit(RegisterSuccessState(loginModel));
+      emit(RegisterUserSuccessState(loginModel));
     }).catchError((error) {
       print(error.toString());
-      emit(RegisterErrorState(error.toString()));
+      emit(RegisterUserErrorState(error.toString()));
+    });
+  }
+
+  void userLogin({
+    required String phone,
+  }) {
+    emit(RegisterUserLoadingState());
+    DioHelper.postData(
+      url: USER,
+      data: {
+        'phone': phone,
+      },
+    ).then((value) {
+      loginModel = UserData.fromJson(value?.data);
+      print(value?.data);
+      emit(RegisterUserSuccessState(loginModel));
+    }).catchError((error) {
+      print(error.toString());
+      emit(RegisterUserErrorState(error.toString()));
     });
   }
 }
 
-//
-//
+// Register Captain Cubit
+class RegisterCaptainCubit extends Cubit<RegisterCaptainStates> {
+  RegisterCaptainCubit() : super(RegisterCaptainInitialState());
 
-// class ProfileCubit extends Cubit<ProfileStates> {
-//   ProfileCubit() : super(ProfileInitialState());
+  static RegisterCaptainCubit get(context) => BlocProvider.of(context);
 
-//   static ProfileCubit get(context) => BlocProvider.of(context);
+  late CaptainData loginModel;
 
-//   void editProfile(
-//     String token,
-//     String name,
-//     String gender,
-//     String phone,
-//     // String email,
-//     // String password,
-//   ) {
-//     emit(ProfileLoadingState());
-//     DioHelper.postData(
-//       url: 'PROFILE',
-//       data: {
-//         'name': name,
-//         'token': token,
-//         'gender': gender,
-//         'phone': phone,
-//         // 'email': email,
-//         // 'password': password,
-//       },
-//     ).then((value) {
-//       print(value?.data);
-//       emit(ProfileSuccessState());
-//     }).catchError((error) {
-//       print(error.toString());
-//       emit(ProfileErrorState(error.toString()));
-//     });
-//   }
-// }
+  void CaptainRegister({
+    required String phone,
+  }) {
+    emit(RegisterCaptainLoadingState());
+    DioHelper.postData(
+      url: 'Captain',
+      data: {
+        'phone': phone,
+      },
+    ).then((value) {
+      loginModel = CaptainData.fromJson(value?.data);
+      print(value?.data);
+      emit(RegisterCaptainSuccessState(loginModel));
+    }).catchError((error) {
+      print(error.toString());
+      emit(RegisterCaptainErrorState(error.toString()));
+    });
+  }
+
+  void CaptainLogin({
+    required String phone,
+  }) {
+    emit(RegisterCaptainLoadingState());
+    DioHelper.postData(
+      url: 'Captain',
+      data: {
+        'phone': phone,
+      },
+    ).then((value) {
+      loginModel = CaptainData.fromJson(value?.data);
+      print(value?.data);
+      emit(RegisterCaptainSuccessState(loginModel));
+    }).catchError((error) {
+      print(error.toString());
+      emit(RegisterCaptainErrorState(error.toString()));
+    });
+  }
+}

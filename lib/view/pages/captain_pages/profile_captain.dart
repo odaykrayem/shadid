@@ -24,55 +24,55 @@ class _ProfileCaptainState extends State<ProfileCaptain> {
     List<Map<String, dynamic>> profileItems = [
       {
         'title': 'رصيد الحساب',
-        'icon': const Icon(CaptainProfileIcons.walet),
+        'icon': CaptainProfileIcons.walet,
         'trailing': '150 ر.س',
         'onTap': () {},
       },
       {
         'title': 'إجمالي رسوم التوصيل',
-        'icon': const Icon(CaptainProfileIcons.analyze),
+        'icon': CaptainProfileIcons.analyze,
         'trailing': '1510 ر.س',
         'onTap': () {},
       },
       {
         'title': 'عدد الطلبات',
-        'icon': const Icon(CaptainProfileIcons.car),
+        'icon': CaptainProfileIcons.car,
         'trailing': '15 طلبات',
         'onTap': () {},
       },
       {
         'title': 'بيانات الدفع',
-        'icon': const Icon(CaptainProfileIcons.payment),
+        'icon': CaptainProfileIcons.payment,
         'trailing': '',
         'onTap': () {},
       },
       {
         'title': 'التقييمات',
-        'icon': const Icon(CaptainProfileIcons.star),
+        'icon': CaptainProfileIcons.star,
         'trailing': '',
         'onTap': () {},
       },
       {
         'title': 'مركز المساعدة',
-        'icon': const Icon(CaptainProfileIcons.clients_help),
+        'icon': CaptainProfileIcons.clients_help,
         'trailing': '',
         'onTap': () {},
       },
       {
         'title': 'سياسة الخصوصية',
-        'icon': const Icon(CaptainProfileIcons.car),
+        'icon': Icons.abc,
         'trailing': '',
         'onTap': () {},
       },
       {
         'title': 'إعدادات اللغة',
-        'icon': const Icon(CaptainProfileIcons.lang),
+        'icon': CaptainProfileIcons.lang,
         'trailing': '',
         'onTap': () {},
       },
       {
         'title': 'تسجيل الخروج',
-        'icon': const Icon(CaptainProfileIcons.logout),
+        'icon': CaptainProfileIcons.logout,
         'trailing': '',
         'onTap': () {
           _signOut().then((value) {
@@ -126,6 +126,19 @@ class _ProfileCaptainState extends State<ProfileCaptain> {
                       ),
                     ],
                   ),
+                  const SizedBox(
+                    height: 20.0,
+                  ),
+                  const Text(
+                    'جهاد السماك',
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 25.0,
+                  ),
                   ListView.separated(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
@@ -154,25 +167,69 @@ class _ProfileCaptainState extends State<ProfileCaptain> {
   Widget profileItem({
     required String title,
     required String trailing,
-    required Icon icon,
+    required IconData icon,
     required int index,
     void Function()? onTap,
   }) {
-    return ListTile(
-      onTap: onTap,
-      title: Text(
-        title,
-        style: const TextStyle(
-          fontWeight: FontWeight.bold,
+    return Column(
+      children: [
+        ListTile(
+          onTap: onTap,
+          title: Text(
+            title,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          leading: CircleAvatar(
+            backgroundColor: tripleColor,
+            child: index == 6
+                ? Image.asset(
+                    'assets/img/ex_logo.png',
+                    height: 25.0,
+                    width: 25.0,
+                  )
+                : Padding(
+                    padding: index == 2
+                        ? const EdgeInsets.only(right: 6.0)
+                        : EdgeInsets.zero,
+                    child: Icon(
+                      icon,
+                      color: Colors.white,
+                      size: 20.0,
+                    ),
+                  ),
+          ),
+          trailing: index == 0 || index == 1 || index == 2
+              ? Text(
+                  trailing,
+                  style: TextStyle(
+                    color: primaryColor,
+                  ),
+                )
+              : const Icon(
+                  Icons.arrow_forward_ios,
+                  size: 20.0,
+                ),
         ),
-      ),
-      leading: CircleAvatar(
-        backgroundColor: tripleColor,
-        child: icon,
-      ),
-      trailing: index == 0 || index == 1 || index == 2
-          ? Text(trailing)
-          : const Icon(Icons.arrow_forward_ios),
+        if (index == 0)
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.8,
+            child: MaterialButton(
+              onPressed: () {},
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5.0),
+              ),
+              color: Colors.grey[100],
+              elevation: 0.0,
+              focusElevation: 0.0,
+              hoverElevation: 0.0,
+              highlightElevation: 0.0,
+              textColor: primaryColor,
+              child: const Text('إضافة رصيد'),
+            ),
+          ),
+      ],
     );
   }
 }

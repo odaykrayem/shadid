@@ -1,40 +1,40 @@
- 
 import 'package:shadid/model/loginModel.dart';
 
-// abstract class LoginStates {}
+// Registr User States
+abstract class RegisterUserStates {}
 
-// class LoginInitialState extends LoginStates {}
+class RegisterUserInitialState extends RegisterUserStates {}
 
-// class LoginLoadingState extends LoginStates {}
+class RegisterUserLoadingState extends RegisterUserStates {}
 
-// class LoginSuccessState extends LoginStates {
-//   late final UserData loginModel;
-
-//   LoginSuccessState(this.loginModel);
-// }
-
-// class LoginErrorState extends LoginStates {
-//   final String error;
-
-//   LoginErrorState(this.error);
-// }
-
-// Register States
-
-abstract class RegisterStates {}
-
-class RegisterInitialState extends RegisterStates {}
-
-class RegisterLoadingState extends RegisterStates {}
-
-class RegisterSuccessState extends RegisterStates {
+class RegisterUserSuccessState extends RegisterUserStates {
   late final UserData loginModel;
 
-  RegisterSuccessState(this.loginModel);
+  RegisterUserSuccessState(this.loginModel);
 }
 
-class RegisterErrorState extends RegisterStates {
+class RegisterUserErrorState extends RegisterUserStates {
   final String error;
 
-  RegisterErrorState(this.error);
+  RegisterUserErrorState(this.error);
+}
+
+// Registr Captain States
+
+abstract class RegisterCaptainStates {}
+
+class RegisterCaptainInitialState extends RegisterCaptainStates {}
+
+class RegisterCaptainLoadingState extends RegisterCaptainStates {}
+
+class RegisterCaptainSuccessState extends RegisterCaptainStates {
+  late final CaptainData loginModel;
+
+  RegisterCaptainSuccessState(this.loginModel);
+}
+
+class RegisterCaptainErrorState extends RegisterCaptainStates {
+  final String error;
+
+  RegisterCaptainErrorState(this.error);
 }
