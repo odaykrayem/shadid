@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:shadid/utils/captain_profile_icons_icons.dart';
 import 'package:shadid/utils/constant.dart';
 import 'package:shadid/view/pages/splash.dart';
+import 'package:shadid/view/widgets/customButton.dart';
 
 class ProfileCaptain extends StatefulWidget {
   const ProfileCaptain({Key? key}) : super(key: key);
@@ -216,7 +217,144 @@ class _ProfileCaptainState extends State<ProfileCaptain> {
           SizedBox(
             width: MediaQuery.of(context).size.width * 0.8,
             child: MaterialButton(
-              onPressed: () {},
+              onPressed: () {
+                showModalBottomSheet(
+                  enableDrag: true,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(50.0),
+                      topRight: Radius.circular(50.0),
+                    ),
+                  ),
+                  context: context,
+                  builder: (context) {
+                    return Container(
+                      padding: const EdgeInsets.all(20.0),
+                      // height: MediaQuery.of(context).size.height * 0.4,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Align(
+                            alignment: Alignment.center,
+                            child: Container(
+                              height: 6.0,
+                              width: MediaQuery.of(context).size.width * 0.5,
+                              decoration: BoxDecoration(
+                                  color: Colors.grey[300],
+                                  borderRadius: BorderRadius.circular(50.0)),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 20.0,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: const [
+                              Text(
+                                'أضف الرصيد',
+                                style: TextStyle(
+                                  fontSize: 18.0,
+                                ),
+                              ),
+                              Icon(Icons.close),
+                            ],
+                          ),
+                          const Divider(),
+                          const Text(
+                            'طريقة السداد',
+                            style: TextStyle(
+                              fontSize: 18.0,
+                              color: Colors.grey,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 20.0,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: const [
+                                  CircleAvatar(),
+                                  SizedBox(
+                                    width: 10.0,
+                                  ),
+                                  Text(
+                                    '5789 ****',
+                                    textDirection: TextDirection.ltr,
+                                    style: TextStyle(
+                                      fontSize: 18.0,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                children: const [
+                                  Text('تغيير'),
+                                  SizedBox(
+                                    width: 10.0,
+                                  ),
+                                  Icon(Icons.arrow_forward),
+                                ],
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 20.0,
+                          ),
+                          const Text(
+                            'أدخل المبلغ المراد إضافته إلى رصيدك',
+                            style: TextStyle(
+                              fontSize: 18.0,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 20.0,
+                          ),
+                          TextFormField(
+                            textInputAction: TextInputAction.done,
+                            keyboardType: TextInputType.number,
+                            decoration: InputDecoration(
+                              hintText: '0.00',
+                              filled: true,
+                              fillColor: Colors.grey[200],
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                borderSide: BorderSide.none,
+                              ),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                borderSide: BorderSide.none,
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                borderSide: BorderSide(
+                                  color: primaryColor,
+                                ),
+                              ),
+                              errorBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              focusedErrorBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 20.0,
+                          ),
+                          CustomButton(
+                            onPressed: () {},
+                            title: 'سدد',
+                            context: context,
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                );
+              },
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5.0),
               ),

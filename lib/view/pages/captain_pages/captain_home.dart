@@ -33,36 +33,37 @@ class _CaptainHomeState extends State<CaptainHome> {
   CaptainAccountStatus accountStatus = CaptainAccountStatus.active;
   SearchOptions option = SearchOptions.close;
 
-  
   int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      bottomNavigationBar: ClipRRect(
-        clipBehavior: Clip.none,
-        child: Container(
-          padding: const EdgeInsets.only(
-            top: 10.0,
-            bottom: 20.0,
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        bottomNavigationBar: ClipRRect(
+          clipBehavior: Clip.none,
+          child: Container(
+            padding: const EdgeInsets.only(
+              top: 10.0,
+              bottom: 20.0,
+            ),
+            color: Colors.transparent,
+            child: CustomBottomNavBar(),
           ),
-          color: Colors.transparent,
-          child: CustomBottomNavBar(),
         ),
-      ),
-      body: Builder(
-        builder: (context) {
-          if (_currentIndex == 0) {
-            return const CaptainMainPage();
-          }
-          if (_currentIndex == 1) {
-            return const OrdersCaptain();
-          }
-          if (_currentIndex == 2) {
-            return const MassagesCaptain();
-          }
-          return const ProfileCaptain();
-        },
+        body: Builder(
+          builder: (context) {
+            if (_currentIndex == 0) {
+              return const CaptainMainPage();
+            }
+            if (_currentIndex == 1) {
+              return const OrdersCaptain();
+            }
+            if (_currentIndex == 2) {
+              return const MassagesCaptain();
+            }
+            return const ProfileCaptain();
+          },
+        ),
       ),
     );
   }

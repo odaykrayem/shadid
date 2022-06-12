@@ -60,7 +60,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         fontFamily: 'Tajawal',
       ),
-      home: SafeArea(child: CaptainHome()),
+      home: CaptainHome(),
       locale: _locale,
       supportedLocales: [
         const Locale('ar', 'SA'),
