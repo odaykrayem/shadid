@@ -10,6 +10,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:shadid/localization/localization.dart';
 import 'package:shadid/model/cacheHelper.dart';
+import 'package:shadid/model/loginModel.dart';
 import 'package:shadid/utils/constant.dart';
 import 'package:shadid/view/auth/auth_captain/captain_register.dart';
 import 'package:shadid/view/auth/register.dart';
@@ -39,7 +40,7 @@ class _OTPState extends State<OTP> {
       StreamController<ErrorAnimationType>();
 
   var formKey = GlobalKey<FormState>();
-
+ 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
 
   @override
@@ -228,10 +229,20 @@ class _OTPState extends State<OTP> {
                               }
                               if (CacheHelper.getData(key: 'type') ==
                                   "${UserType.captain}") {
-                                Navigator.pushAndRemoveUntil(context,
-                                    MaterialPageRoute(builder: (context) {
-                                  return CaptainRegister();
-                                }), (route) => false);
+                                if (CacheHelper.getData(key: 'isNew') ==
+                                    false) {
+                                  CacheHelper.saveData(
+                                      key: 'isCaptainRegistered', value: true);
+                                  Navigator.pushAndRemoveUntil(context,
+                                      MaterialPageRoute(builder: (context) {
+                                    return CaptainHome();
+                                  }), (route) => false);
+                                } else {
+                                  Navigator.pushAndRemoveUntil(context,
+                                      MaterialPageRoute(builder: (context) {
+                                    return CaptainRegister();
+                                  }), (route) => false);
+                                }
                               }
                             } else {
                               Navigator.pushAndRemoveUntil(context,
@@ -297,10 +308,18 @@ class _OTPState extends State<OTP> {
                 }), (route) => false);
               }
               if (CacheHelper.getData(key: 'type') == "${UserType.captain}") {
-                Navigator.pushAndRemoveUntil(context,
-                    MaterialPageRoute(builder: (context) {
-                  return CaptainHome();
-                }), (route) => false);
+                if (CacheHelper.getData(key: 'isNew') == false) {
+                  CacheHelper.saveData(key: 'isCaptainRegistered', value: true);
+                  Navigator.pushAndRemoveUntil(context,
+                      MaterialPageRoute(builder: (context) {
+                    return CaptainHome();
+                  }), (route) => false);
+                } else {
+                  Navigator.pushAndRemoveUntil(context,
+                      MaterialPageRoute(builder: (context) {
+                    return CaptainRegister();
+                  }), (route) => false);
+                }
               }
             } else {
               Navigator.pushAndRemoveUntil(context,

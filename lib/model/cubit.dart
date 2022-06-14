@@ -1,5 +1,8 @@
 // ignore_for_file: avoid_print, annotate_overrides, avoid_renaming_method_parameters, non_constant_identifier_names, unused_import
 
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shadid/model/dioHelper.dart';
@@ -7,9 +10,6 @@ import 'package:shadid/model/loginModel.dart';
 import 'package:shadid/model/states.dart';
 import 'package:shadid/utils/constant.dart';
 
-
-
- 
 // class LoginCubit extends Cubit<LoginStates> {
 //   LoginCubit() : super(LoginInitialState());
 
@@ -49,7 +49,7 @@ class RegisterUserCubit extends Cubit<RegisterUserStates> {
 
   static RegisterUserCubit get(context) => BlocProvider.of(context);
 
-  late UserData loginModel;
+  late UserData userData;
 
   void userRegister({
     required String phone,
@@ -61,28 +61,9 @@ class RegisterUserCubit extends Cubit<RegisterUserStates> {
         'phone': phone,
       },
     ).then((value) {
-      loginModel = UserData.fromJson(value?.data);
-      print(value?.data);
-      emit(RegisterUserSuccessState(loginModel));
-    }).catchError((error) {
-      print(error.toString());
-      emit(RegisterUserErrorState(error.toString()));
-    });
-  }
-
-  void userLogin({
-    required String phone,
-  }) {
-    emit(RegisterUserLoadingState());
-    DioHelper.postData(
-      url: USER,
-      data: {
-        'phone': phone,
-      },
-    ).then((value) {
-      loginModel = UserData.fromJson(value?.data);
-      print(value?.data);
-      emit(RegisterUserSuccessState(loginModel));
+      userData = UserData.fromJson(value?.data);
+      debugPrint(value?.data);
+      emit(RegisterUserSuccessState(userData));
     }).catchError((error) {
       print(error.toString());
       emit(RegisterUserErrorState(error.toString()));
@@ -91,45 +72,37 @@ class RegisterUserCubit extends Cubit<RegisterUserStates> {
 }
 
 // Register Captain Cubit
+
 class RegisterCaptainCubit extends Cubit<RegisterCaptainStates> {
   RegisterCaptainCubit() : super(RegisterCaptainInitialState());
 
   static RegisterCaptainCubit get(context) => BlocProvider.of(context);
 
-  late CaptainData loginModel;
+  late CaptainData captainData;
 
   void CaptainRegister({
     required String phone,
+    required String email,
+    required String ban_info,
+    required String type,
+    required String name,
+    required String service,
   }) {
     emit(RegisterCaptainLoadingState());
     DioHelper.postData(
-      url: 'Captain',
+      url: DRIVER,
       data: {
         'phone': phone,
+        'email': email,
+        'ban_info': ban_info,
+        'type': type,
+        'name': name,
+        'service': service,
       },
     ).then((value) {
-      loginModel = CaptainData.fromJson(value?.data);
+      captainData = CaptainData.fromJson(value?.data);
       print(value?.data);
-      emit(RegisterCaptainSuccessState(loginModel));
-    }).catchError((error) {
-      print(error.toString());
-      emit(RegisterCaptainErrorState(error.toString()));
-    });
-  }
-
-  void CaptainLogin({
-    required String phone,
-  }) {
-    emit(RegisterCaptainLoadingState());
-    DioHelper.postData(
-      url: 'Captain',
-      data: {
-        'phone': phone,
-      },
-    ).then((value) {
-      loginModel = CaptainData.fromJson(value?.data);
-      print(value?.data);
-      emit(RegisterCaptainSuccessState(loginModel));
+      emit(RegisterCaptainSuccessState(captainData));
     }).catchError((error) {
       print(error.toString());
       emit(RegisterCaptainErrorState(error.toString()));

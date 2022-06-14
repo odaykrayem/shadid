@@ -150,7 +150,8 @@ class _CaptainRegisterState extends State<CaptainRegister> {
                           '3',
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            color: _currentPage == 2 ? Colors.white : Colors.grey,
+                            color:
+                                _currentPage == 2 ? Colors.white : Colors.grey,
                             fontSize: 18.0,
                             height: 1.5,
                             fontWeight: FontWeight.bold,
@@ -253,7 +254,7 @@ class _CaptainRegisterState extends State<CaptainRegister> {
                       );
                     }
                   }
-    
+
                   return const SizedBox();
                 },
               ),

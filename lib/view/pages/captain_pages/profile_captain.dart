@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:shadid/model/cacheHelper.dart';
 import 'package:shadid/utils/captain_profile_icons_icons.dart';
 import 'package:shadid/utils/constant.dart';
 import 'package:shadid/view/pages/splash.dart';
@@ -27,19 +28,19 @@ class _ProfileCaptainState extends State<ProfileCaptain> {
         'title': 'رصيد الحساب',
         'icon': CaptainProfileIcons.walet,
         'trailing': '150 ر.س',
-        'onTap': () {},
+        'onTap': null,
       },
       {
         'title': 'إجمالي رسوم التوصيل',
         'icon': CaptainProfileIcons.analyze,
         'trailing': '1510 ر.س',
-        'onTap': () {},
+        'onTap': null,
       },
       {
         'title': 'عدد الطلبات',
         'icon': CaptainProfileIcons.car,
         'trailing': '15 طلبات',
-        'onTap': () {},
+        'onTap': null,
       },
       {
         'title': 'بيانات الدفع',
@@ -76,6 +77,8 @@ class _ProfileCaptainState extends State<ProfileCaptain> {
         'icon': CaptainProfileIcons.logout,
         'trailing': '',
         'onTap': () {
+          CacheHelper.removeData(key: 'api_token');
+          CacheHelper.removeData(key: 'isCaptainRegistered');
           _signOut().then((value) {
             Navigator.pushAndRemoveUntil(context,
                 MaterialPageRoute(builder: (context) {
@@ -130,9 +133,9 @@ class _ProfileCaptainState extends State<ProfileCaptain> {
                   const SizedBox(
                     height: 20.0,
                   ),
-                  const Text(
-                    'جهاد السماك',
-                    style: TextStyle(
+                  Text(
+                    CacheHelper.getData(key: 'fullName').toString(),
+                    style: const TextStyle(
                       fontSize: 20.0,
                       fontWeight: FontWeight.bold,
                     ),
@@ -152,7 +155,7 @@ class _ProfileCaptainState extends State<ProfileCaptain> {
                         trailing: profileItems[i]['trailing'],
                         icon: profileItems[i]['icon'],
                         index: i,
-                        onTap: profileItems[i]['onTap'],
+                        onPressed: profileItems[i]['onTap'],
                       );
                     },
                   ),
@@ -170,48 +173,51 @@ class _ProfileCaptainState extends State<ProfileCaptain> {
     required String trailing,
     required IconData icon,
     required int index,
-    void Function()? onTap,
+    void Function()? onPressed,
   }) {
     return Column(
       children: [
-        ListTile(
-          onTap: onTap,
-          title: Text(
-            title,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
+        MaterialButton(
+          padding: EdgeInsets.zero,
+          onPressed: onPressed,
+          child: ListTile(
+            title: Text(
+              title,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
             ),
-          ),
-          leading: CircleAvatar(
-            backgroundColor: tripleColor,
-            child: index == 6
-                ? Image.asset(
-                    'assets/img/ex_logo.png',
-                    height: 25.0,
-                    width: 25.0,
-                  )
-                : Padding(
-                    padding: index == 2
-                        ? const EdgeInsets.only(right: 6.0)
-                        : EdgeInsets.zero,
-                    child: Icon(
-                      icon,
-                      color: Colors.white,
-                      size: 20.0,
+            leading: CircleAvatar(
+              backgroundColor: tripleColor,
+              child: index == 6
+                  ? Image.asset(
+                      'assets/img/ex_logo.png',
+                      height: 25.0,
+                      width: 25.0,
+                    )
+                  : Padding(
+                      padding: index == 2
+                          ? const EdgeInsets.only(right: 6.0)
+                          : EdgeInsets.zero,
+                      child: Icon(
+                        icon,
+                        color: Colors.white,
+                        size: 20.0,
+                      ),
                     ),
+            ),
+            trailing: index == 0 || index == 1 || index == 2
+                ? Text(
+                    trailing,
+                    style: TextStyle(
+                      color: primaryColor,
+                    ),
+                  )
+                : const Icon(
+                    Icons.arrow_forward_ios,
+                    size: 20.0,
                   ),
           ),
-          trailing: index == 0 || index == 1 || index == 2
-              ? Text(
-                  trailing,
-                  style: TextStyle(
-                    color: primaryColor,
-                  ),
-                )
-              : const Icon(
-                  Icons.arrow_forward_ios,
-                  size: 20.0,
-                ),
         ),
         if (index == 0)
           SizedBox(
@@ -226,11 +232,12 @@ class _ProfileCaptainState extends State<ProfileCaptain> {
                       topRight: Radius.circular(50.0),
                     ),
                   ),
+                  backgroundColor: Colors.white,
+                  isScrollControlled: true,
                   context: context,
                   builder: (context) {
                     return Container(
                       padding: const EdgeInsets.all(20.0),
-                      // height: MediaQuery.of(context).size.height * 0.4,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisSize: MainAxisSize.min,
@@ -344,10 +351,17 @@ class _ProfileCaptainState extends State<ProfileCaptain> {
                           const SizedBox(
                             height: 20.0,
                           ),
-                          CustomButton(
-                            onPressed: () {},
-                            title: 'سدد',
-                            context: context,
+                          Padding(
+                            padding: EdgeInsets.only(
+                                bottom:
+                                    MediaQuery.of(context).viewInsets.bottom),
+                            child: CustomButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              title: 'سدد',
+                              context: context,
+                            ),
                           ),
                         ],
                       ),

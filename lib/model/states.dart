@@ -8,9 +8,9 @@ class RegisterUserInitialState extends RegisterUserStates {}
 class RegisterUserLoadingState extends RegisterUserStates {}
 
 class RegisterUserSuccessState extends RegisterUserStates {
-  late final UserData loginModel;
+  late final UserData userData;
 
-  RegisterUserSuccessState(this.loginModel);
+  RegisterUserSuccessState(this.userData);
 }
 
 class RegisterUserErrorState extends RegisterUserStates {
@@ -28,9 +28,9 @@ class RegisterCaptainInitialState extends RegisterCaptainStates {}
 class RegisterCaptainLoadingState extends RegisterCaptainStates {}
 
 class RegisterCaptainSuccessState extends RegisterCaptainStates {
-  late final CaptainData loginModel;
+  late final CaptainData captainData;
 
-  RegisterCaptainSuccessState(this.loginModel);
+  RegisterCaptainSuccessState(this.captainData);
 }
 
 class RegisterCaptainErrorState extends RegisterCaptainStates {

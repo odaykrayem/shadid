@@ -9,7 +9,7 @@ import 'package:shadid/model/blocObserver.dart';
 import 'package:shadid/model/cacheHelper.dart';
 import 'package:shadid/model/dioHelper.dart';
 import 'package:shadid/view/auth/register.dart';
-import 'package:shadid/view/pages/captain_pages/captain_home.dart';
+import 'package:shadid/view/pages/splash.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,6 +17,10 @@ Future<void> main() async {
   DioHelper.init();
   await Firebase.initializeApp();
   await CacheHelper.init();
+
+  // CacheHelper.removeData(key: 'isCaptainRegistered');
+  debugPrint(CacheHelper.getData(key: 'api_token').toString());
+  debugPrint(CacheHelper.getData(key: 'isNew').toString());
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle(
       statusBarColor: Colors.white,
@@ -60,7 +64,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         fontFamily: 'Tajawal',
       ),
-      home: CaptainHome(),
+      home: const Splash(),
       locale: _locale,
       supportedLocales: [
         const Locale('ar', 'SA'),

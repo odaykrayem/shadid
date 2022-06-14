@@ -7,3 +7,4 @@ Color primaryColor = const Color(0xff00D27F);
 Color secondaryColor = const Color(0xffB2EEEE);
 Color tripleColor = const Color(0xff9DE0C6);
 const USER = 'user';
+const DRIVER = 'driver';
