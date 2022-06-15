@@ -48,7 +48,9 @@ class _UserHomeState extends State<UserHome> {
                     return UserMainPage();
                   }
                   if (indexPage == 1) {
-                    return Orders();
+                    return Orders(
+                      selectedOrderType: OrderType.existing,
+                    );
                   }
                   if (indexPage == 2) {
                     return const Massages();

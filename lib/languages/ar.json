@@ -9,7 +9,7 @@
     "next": "التالي",
     "startNow": "ابدأ الآن",
     "createAccount": "انشاء حساب",
-    "hi": "مرحبا بك",
+    "hi": "مرحباً بك",
     "enterPhone": "أدخل رقم هاتفك للتحقق",
     "user": "مستخدم",
     "captain": "كابتن",
@@ -124,5 +124,25 @@
     "youWillBeNotified": "سيتم إعلامك عندما تبدأ في تلقي عروض الأسعار",
     "offersAndPrices": "العروض و الأسعار",
     "latestOrders": "أحدث الطلبات",
-    "previousOrders": "الطلبات السابقة"
+    "previousOrders": "الطلبات السابقة",
+    "startOver": "البدء من جديد",
+    "goodEveningBotMsg": "مساء الخير",
+    "howCanServeBotMsg": "كيف أقدر أخدمك اليوم ؟",
+    "myPreviousOrders": "طلباتي السابقة",
+    "newOrder": "طلب جديد",
+    "iNeedHelp": "أحتاج إلى مساعدة",
+    "whatServiceDoYouWantBotMsg": "ماالخدمة التي تريدها ؟",
+    "technicalSupport": "الدعم الفني",
+    "paymentFailed": "فشلت عملية الدفع",
+    "paymentFailedMsg": "لم نستطع معالجة عملية الدفع يرجى مراجعة \n معلومات الدفع الخاصة بك و \n المحاولة مرة أخرى",
+    "tryAgain": "المحاولة مرة أخرى",
+    "cancel": "إلغاء",
+    "delivered": "تم التوصيل",
+    "generateInvoice": "أصدرلي فاتورة",
+    "payTheAmount": "دفع المبلغ",
+    "orderTracking": "تتبع الطلب",
+    "deliveryInvoice": "فاتورة توصيل",
+    "messageIsDisabled": "الرسالة معطلة"
+
+
 }

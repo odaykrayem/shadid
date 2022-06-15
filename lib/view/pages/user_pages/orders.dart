@@ -1,24 +1,32 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+
 import 'package:shadid/localization/localization.dart';
 import 'package:shadid/model/order.dart';
 import 'package:shadid/utils/size_config.dart';
 import 'package:shadid/utils/styles.dart';
 import 'package:shadid/view/widgets/order_item.dart';
 import 'package:shadid/view/widgets/order_item_fixed.dart';
+
 import '../../../utils/constant.dart';
 
 enum OrderType { existing, completed, canceled }
 
 class Orders extends StatefulWidget {
-  const Orders({Key? key}) : super(key: key);
+  OrderType selectedOrderType;
+  Orders({
+    Key? key,
+    required this.selectedOrderType,
+  }) : super(key: key);
 
   @override
   State<Orders> createState() => _OrdersState();
 }
 
 class _OrdersState extends State<Orders> {
-  var orderType = OrderType.existing;
+  late var orderType = widget.selectedOrderType;
+
   late Map<OrderType, String> buttonTitles;
   List<Order> orders = [
     Order(
@@ -31,6 +39,11 @@ class _OrdersState extends State<Orders> {
         description: 'تفاصيل متعلقة بالطلب ونوعه',
         date: '22/11/2022',
         orderType: OrderType.completed),
+    Order(
+        id: '#158756',
+        description: 'تفاصيل متعلقة بالطلب ونوعه',
+        date: '22/11/2022',
+        orderType: OrderType.canceled),
     Order(
         id: '#158756',
         description: 'تفاصيل متعلقة بالطلب ونوعه',
@@ -116,16 +129,20 @@ class _OrdersState extends State<Orders> {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 13.0),
-                    child: SizedBox(
-                      width: double.infinity,
-                      child: Text(
-                        '${AppLocalization.of(context)?.getTranslatedValue('latestOrders')}',
-                        style: titleTextStyle,
-                      ),
-                    ),
-                  ),
+                  orderType == OrderType.existing
+                      ? SizedBox(
+                          height: 20,
+                        )
+                      : Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 13.0),
+                          child: SizedBox(
+                            width: double.infinity,
+                            child: Text(
+                              '${AppLocalization.of(context)?.getTranslatedValue('latestOrders')}',
+                              style: titleTextStyle,
+                            ),
+                          ),
+                        ),
                   OrderItemFixed(
                       title: 'نقل عفش',
                       date: 'لأحد 3 أبريل 2022',

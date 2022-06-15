@@ -44,7 +44,7 @@ class _OrderItemFixedState extends State<OrderItemFixed> {
                       onTap: () {},
                       child: Icon(
                         Icons.more_vert,
-                        color: colorLightGrey,
+                        color: colorGrey,
                       ))
                 ],
               ),

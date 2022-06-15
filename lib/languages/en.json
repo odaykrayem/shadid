@@ -124,5 +124,22 @@
     "youWillBeNotified": "You will be notified when you start receiving quotes",
     "offersAndPrices": "Offers and prices",
     "latestOrders": "Latest orders",
-    "previousOrders": "Previous orders"
+    "previousOrders": "Previous orders",
+    "startOver": "Start over",
+    "goodEveningBotMsg": "Good evening",
+    "howCanServeBotMsg": "How can i serve you today ?",
+    "myPreviousOrders": "My previous orders",
+    "newOrder": "New order",
+    "iNeedHelp": "I need help",
+    "whatServiceDoYouWantBotMsg": "What service do you want ?",
+    "technicalSupport": "Technical support",
+    "paymentFailedMsg": "We could not process the payment.\n Please review your payment information \n and try again",
+    "tryAgain": "Try again",
+    "cancel": "Cancel",
+    "delivered": "Delivered",
+    "generateInvoice": "Generate invoice",
+    "payTheAmount": "Pay the amount",
+    "orderTracking": "Order tracking",
+    "deliveryInvoice": "Delivery invoice",
+    "messageIsDisabled": "Message is disabled"
 }

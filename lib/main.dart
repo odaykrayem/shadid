@@ -5,7 +5,14 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:shadid/localization/localization.dart';
 import 'package:shadid/model/cacheHelper.dart';
 import 'package:shadid/view/pages/captain_pages/captain_home.dart';
+import 'package:shadid/view/pages/select_lang.dart';
+import 'package:shadid/view/pages/user_pages/chat.dart';
+import 'package:shadid/view/pages/user_pages/orders.dart';
+import 'package:shadid/view/pages/user_pages/select_service_bot.dart';
+import 'package:shadid/view/pages/user_pages/tracking_bot.dart';
 import 'package:shadid/view/pages/user_pages/user_home.dart';
+
+import 'view/pages/user_pages/error_msg.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -51,7 +58,17 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         fontFamily: 'Tajawal',
       ),
-      home: SafeArea(child: UserHome()),
+      home: SafeArea(
+        child:
+            // TrackingBot(orderId: "#2334"),
+
+            //  SelectLang()
+            //       SelecteService(
+            // name: 'User Name',
+            Chat(price: 23, color: Colors.amberAccent),
+      )
+      // Orders(selectedOrderType: OrderType.canceled),
+      ,
       locale: _locale,
       supportedLocales: [
         const Locale('ar', 'SA'),

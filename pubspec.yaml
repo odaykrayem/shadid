@@ -50,7 +50,12 @@ dependencies:
   dropdown_below: ^1.0.2
   animated_text_kit:
   simple_star_rating:
-
+  intl:
+  dio:
+  flutter_polyline_points:
+  google_maps_flutter:
+  geolocator:
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
