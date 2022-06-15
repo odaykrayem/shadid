@@ -44,19 +44,19 @@ class _RegisterState extends State<Register> {
           }
           if (state is RegisterUserSuccessState) {
             showToast(text: 'تم تسجيل الرقم سيتم التحقق منه');
-            debugPrint(state.userData.api_token);
-            debugPrint(state.userData.isNew.toString());
-            CacheHelper.saveData(key: 'isNew', value: state.userData.isNew);
-            CacheHelper.saveData(
-                key: 'phone', value: "${state.userData.phone}");
-            CacheHelper.saveData(
-                key: 'user_image', value: '${state.userData.user_image}');
-            CacheHelper.saveData(
-                key: 'api_token', value: state.userData.api_token);
-            CacheHelper.saveData(key: 'balance', value: state.userData.balance);
-            CacheHelper.saveData(key: 'id', value: state.userData.id);
-            CacheHelper.saveData(
-                key: 'stars_average', value: state.userData.stars_average);
+            // debugPrint(state.userData.api_token);
+            // debugPrint(state.userData.isNew.toString());
+            // CacheHelper.saveData(key: 'isNew', value: state.userData.isNew);
+            // CacheHelper.saveData(
+            //     key: 'phone', value: "${state.userData.phone}");
+            // CacheHelper.saveData(
+            //     key: 'user_image', value: '${state.userData.user_image}');
+            // CacheHelper.saveData(
+            //     key: 'api_token', value: state.userData.api_token);
+            // CacheHelper.saveData(key: 'balance', value: state.userData.balance);
+            // CacheHelper.saveData(key: 'id', value: state.userData.id);
+            // CacheHelper.saveData(
+            //     key: 'stars_average', value: state.userData.stars_average);
             Navigator.push(context, MaterialPageRoute(builder: (context) {
               return OTP(
                 number: code.toString() + phoneCon.text,
@@ -286,8 +286,9 @@ class _RegisterState extends State<Register> {
                         if (phoneCon.text != '') {
                           if (type != UserType.nothing) {
                             CacheHelper.saveData(key: 'type', value: '$type');
-                            RegisterUserCubit.get(context)
-                                .userRegister(phone: "$code${phoneCon.text}");
+                            RegisterUserCubit.get(context).userRegister(
+                              phone: "$code${phoneCon.text}",
+                            );
                           } else {
                             showToast(
                               text:

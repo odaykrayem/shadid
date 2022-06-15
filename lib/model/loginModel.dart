@@ -12,6 +12,7 @@ class UserData {
   dynamic balance;
   dynamic user_image;
   dynamic stars_average;
+
   UserData.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     phone = json['phone_number'];
@@ -39,6 +40,7 @@ class CaptainData {
   dynamic balance;
   dynamic user_image;
   dynamic stars_average;
+
   CaptainData.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     phone = json['phone_number'];

@@ -1,10 +1,16 @@
+// ignore_for_file: body_might_complete_normally_nullable
+
+import 'dart:core';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shadid/model/cacheHelper.dart';
 import 'package:shadid/utils/captain_profile_icons_icons.dart';
 import 'package:shadid/utils/constant.dart';
+import 'package:shadid/view/pages/captain_pages/payment_data.dart';
 import 'package:shadid/view/pages/splash.dart';
 import 'package:shadid/view/widgets/customButton.dart';
+import 'package:shadid/view/widgets/showToast.dart';
 
 class ProfileCaptain extends StatefulWidget {
   const ProfileCaptain({Key? key}) : super(key: key);
@@ -21,6 +27,9 @@ class _ProfileCaptainState extends State<ProfileCaptain> {
     debugPrint(_auth?.currentUser?.phoneNumber);
   }
 
+  var formKey = GlobalKey<FormState>();
+  var price = TextEditingController();
+  int? priceInt;
   @override
   Widget build(BuildContext context) {
     List<Map<String, dynamic>> profileItems = [
@@ -46,7 +55,14 @@ class _ProfileCaptainState extends State<ProfileCaptain> {
         'title': 'بيانات الدفع',
         'icon': CaptainProfileIcons.payment,
         'trailing': '',
-        'onTap': () {},
+        'onTap': () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) {
+              return const PaymentData();
+            }),
+          );
+        },
       },
       {
         'title': 'التقييمات',
@@ -257,14 +273,19 @@ class _ProfileCaptainState extends State<ProfileCaptain> {
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: const [
-                              Text(
+                            children: [
+                              const Text(
                                 'أضف الرصيد',
                                 style: TextStyle(
                                   fontSize: 18.0,
                                 ),
                               ),
-                              Icon(Icons.close),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.pop(context);
+                                },
+                                child: const Icon(Icons.close),
+                              ),
                             ],
                           ),
                           const Divider(),
@@ -296,14 +317,25 @@ class _ProfileCaptainState extends State<ProfileCaptain> {
                                   ),
                                 ],
                               ),
-                              Row(
-                                children: const [
-                                  Text('تغيير'),
-                                  SizedBox(
-                                    width: 10.0,
-                                  ),
-                                  Icon(Icons.arrow_forward),
-                                ],
+                              MaterialButton(
+                                onPressed: () {},
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      'تغيير',
+                                      style: TextStyle(
+                                        color: primaryColor,
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      width: 10.0,
+                                    ),
+                                    const Icon(
+                                      Icons.arrow_forward,
+                                      color: Colors.grey,
+                                    ),
+                                  ],
+                                ),
                               ),
                             ],
                           ),
@@ -319,32 +351,56 @@ class _ProfileCaptainState extends State<ProfileCaptain> {
                           const SizedBox(
                             height: 20.0,
                           ),
-                          TextFormField(
-                            textInputAction: TextInputAction.done,
-                            keyboardType: TextInputType.number,
-                            decoration: InputDecoration(
-                              hintText: '0.00',
-                              filled: true,
-                              fillColor: Colors.grey[200],
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                                borderSide: BorderSide.none,
-                              ),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                                borderSide: BorderSide.none,
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                                borderSide: BorderSide(
-                                  color: primaryColor,
+                          Form(
+                            key: formKey,
+                            child: TextFormField(
+                              controller: price,
+                              validator: (value) {
+                                if (value!.isEmpty) {
+                                  return '';
+                                }
+                              },
+                              onChanged: (value) {
+                                priceInt = int.parse(price.text);
+                              },
+                              textDirection: TextDirection.ltr,
+                              textInputAction: TextInputAction.done,
+                              keyboardType: TextInputType.number,
+                              decoration: InputDecoration(
+                                errorStyle: const TextStyle(
+                                  fontSize: 0.0,
+                                  height: 0.0,
                                 ),
-                              ),
-                              errorBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                              ),
-                              focusedErrorBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10.0),
+                                hintText: '0.00',
+                                hintTextDirection: TextDirection.ltr,
+                                filled: true,
+                                fillColor: Colors.grey[200],
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(5.0),
+                                  borderSide: BorderSide.none,
+                                ),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(5.0),
+                                  borderSide: BorderSide.none,
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(5.0),
+                                  borderSide: BorderSide(
+                                    color: primaryColor,
+                                  ),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(5.0),
+                                  borderSide: const BorderSide(
+                                    color: Colors.red,
+                                  ),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(5.0),
+                                  borderSide: const BorderSide(
+                                    color: Colors.red,
+                                  ),
+                                ),
                               ),
                             ),
                           ),
@@ -357,7 +413,16 @@ class _ProfileCaptainState extends State<ProfileCaptain> {
                                     MediaQuery.of(context).viewInsets.bottom),
                             child: CustomButton(
                               onPressed: () {
-                                Navigator.pop(context);
+                                if (formKey.currentState!.validate()) {
+                                  if (priceInt! > 0) {
+                                    Navigator.pop(context);
+                                    price.clear();
+                                  } else {
+                                    showToast(
+                                        text:
+                                            'المبلغ لا يتوافق مع الحد الأدنى للسداد');
+                                  }
+                                }
                               },
                               title: 'سدد',
                               context: context,

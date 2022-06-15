@@ -9,7 +9,7 @@ import 'package:shadid/model/blocObserver.dart';
 import 'package:shadid/model/cacheHelper.dart';
 import 'package:shadid/model/dioHelper.dart';
 import 'package:shadid/view/auth/register.dart';
-import 'package:shadid/view/pages/splash.dart';
+import 'package:shadid/view/pages/captain_pages/captain_home.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -64,7 +64,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         fontFamily: 'Tajawal',
       ),
-      home: const Splash(),
+      home: CaptainHome(),
       locale: _locale,
       supportedLocales: [
         const Locale('ar', 'SA'),
