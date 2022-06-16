@@ -63,7 +63,9 @@ class _NotificationsState extends State<Notifications> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.white,
         toolbarHeight: 75.0,
         title: Text(
           '${AppLocalization.of(context)?.getTranslatedValue('notifications')}',
@@ -84,7 +86,6 @@ class _NotificationsState extends State<Notifications> {
           ),
         ),
         elevation: 0.0,
-        backgroundColor: Colors.grey[50],
       ),
       body: Theme(
         data: Theme.of(context).copyWith(

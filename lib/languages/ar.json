@@ -31,6 +31,9 @@
     "searchCountry": "ابحث عن الدولة",
     "plzSelectType": "الرجاء اختيار نوع الحساب",
     "plzEnterPhone": "الرجاء ادخال رقم الهاتف",
+    "searchLog": "أحدث عمليات البحث",
+    "emptyLog": "السجل فارغ",
+    "recomendedServices": "الخدمات الأكثر طلباً",
     "_______comment_______": "Language User App",
     "hello": "مرحبا !",
     "deliveryEasy": "التوصيل أصبح سهلا ....",
@@ -113,6 +116,7 @@
     "ifYouAuthorizedCar": "إذا كنت مفوضاً على السيارة (اختياري)",
     "register": "تسجيل",
     "makeSureUploadReqImg": "تأكد من رفع جميع الصور المطلوبة",
+<<<<<<< HEAD
     "searchLog": "أحدث عمليات البحث",
     "emptyLog": "السجل فارغ",
     "recomendedServices": "الخدمات الأكثر طلباً",
@@ -125,4 +129,28 @@
     "offersAndPrices": "العروض و الأسعار",
     "latestOrders": "أحدث الطلبات",
     "previousOrders": "الطلبات السابقة"
+=======
+    "completed": "مكتمل",
+    "excluded": "مستبعد",
+    "loadingToDone": "جاري التنفيذ",
+    "waitingToAccess": "بانتظار الموافقة",
+    "latestCompOrd": "آخر الطلبات المنجزة",
+    "all": "الكل",
+    "deliveryDone": "تم التوصيل",
+    "myOrders": "طلباتي",
+    "massages": "الرسائل",
+    "myProfile": "بروفايلي",
+    "stayClose": "خليك قريب",
+    "massageBeforAcitve": "سيتم التواصل معك قريباً في حال تمت\nالموافقة على طلبك و سنستغرق هذه\nالخطوة 25 ساعة",
+    "availableOffers": "العروض المتاحة",
+    "previousOffers": "العروض السابقة",
+    "since": "منذ",
+    "presented": "قدم",
+    "canceled": "ملغي",
+    "latestMassages": "أحدث الرسائل",
+    "previousMassages": "الرسائل السابقة",
+    "minute": "دقيقة",
+    "hour": "ساعة",
+    "day": "يوم"
+>>>>>>> c08d06da6b652ebe50bcaa7c31ee099a4c46e3b0
 }

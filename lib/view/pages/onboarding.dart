@@ -64,106 +64,106 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       ),
     ];
 
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: NotificationListener<OverscrollIndicatorNotification>(
-        onNotification: (notification) {
-          notification.disallowIndicator();
-          return true;
-        },
-        child: Column(
-          children: [
-            Expanded(
-              flex: 2,
-              child: PageView.builder(
-                controller: _controller,
-                onPageChanged: (value) => setState(() => _currentPage = value),
-                itemCount: contents.length,
-                itemBuilder: (context, i) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 0.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Image.asset(
-                          contents[i].image,
-                          height: SizeConfig.blockV! * 35,
-                          width: MediaQuery.of(context).size.width,
-                          fit: BoxFit.cover,
-                        ),
-                        const SizedBox(
-                          height: 30.0,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                          child: Text(
-                            contents[i].title,
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(
-                                // fontSize: 22.0,
-                                fontSize: 18.0),
+
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: NotificationListener<OverscrollIndicatorNotification>(
+          onNotification: (notification) {
+            notification.disallowIndicator();
+            return true;
+          },
+          child: Column(
+            children: [
+              Expanded(
+                flex: 2,
+                child: PageView.builder(
+                  controller: _controller,
+                  onPageChanged: (value) => setState(() => _currentPage = value),
+                  itemCount: contents.length,
+                  itemBuilder: (context, i) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 0.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Image.asset(
+                            contents[i].image,
+                            // height: SizeConfig.blockV! * 35,
+                            width: MediaQuery.of(context).size.width,
+                            fit: BoxFit.cover,
+
                           ),
-                        ),
-                      ],
-                    ),
-                  );
-                },
+                          const SizedBox(
+                            height: 30.0,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                            child: Text(
+                              contents[i].title,
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                  // fontSize: 22.0,
+                                  fontSize: 18.0),
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                ),
               ),
-            ),
-            const SizedBox(
-              height: 100.0,
-            ),
-            Expanded(
-              flex: 1,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: List.generate(
-                      contents.length,
-                      (int index) => _buildDots(index: index),
-                    ),
-                  ),
-                  _currentPage + 1 == contents.length
-                      ? Padding(
-                          padding: const EdgeInsets.only(
-                            // bottom: 120.0, //this value make an overflow on 5 inches screens
-                            bottom: 100.0,
-                            right: 20.0,
-                            left: 20.0,
-                          ),
-                          child: CustomButton(
-                            onPressed: () {
-                              Navigator.pushAndRemoveUntil(context,
-                                  MaterialPageRoute(builder: (context) {
-                                return Register();
-                              }), (route) => false);
-                            },
-                            title:
-                                '${AppLocalization.of(context)?.getTranslatedValue('startNow')}',
-                            context: context,
-                          ),
-                        )
-                      : Padding(
-                          padding: const EdgeInsets.only(
-                              bottom: 120.0, right: 20.0, left: 20.0),
-                          child: CustomButton(
-                            onPressed: () {
-                              _controller.nextPage(
-                                duration: const Duration(milliseconds: 200),
-                                curve: Curves.easeIn,
-                              );
-                            },
-                            title:
-                                '${AppLocalization.of(context)?.getTranslatedValue('next')}',
-                            context: context,
-                          ),
-                        ),
-                ],
+              const SizedBox(
+                height: 100.0,
               ),
-            ),
-          ],
+              Expanded(
+                flex: 1,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(
+                        contents.length,
+                        (int index) => _buildDots(index: index),
+                      ),
+                    ),
+
+                    _currentPage + 1 == contents.length
+                        ? Padding(
+                            padding: const EdgeInsets.only(
+                                bottom: 120.0, right: 20.0, left: 20.0),
+                            child: CustomButton(
+                              onPressed: () {
+                                Navigator.pushAndRemoveUntil(context,
+                                    MaterialPageRoute(builder: (context) {
+                                  return Register();
+                                }), (route) => false);
+                              },
+                              title: '${AppLocalization.of(context)?.getTranslatedValue('startNow')}',
+                              context: context,
+                            ),
+                          )
+                        : Padding(
+                            padding: const EdgeInsets.only(
+                                bottom: 120.0, right: 20.0, left: 20.0),
+                            child: CustomButton(
+                              onPressed: () {
+                                _controller.nextPage(
+                                  duration: const Duration(milliseconds: 200),
+                                  curve: Curves.easeIn,
+                                );
+                              },
+                              title:'${AppLocalization.of(context)?.getTranslatedValue('next')}',
+                              context: context,
+                            ),
+
+                          ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

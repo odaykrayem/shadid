@@ -10,6 +10,7 @@ class DeliveryData extends StatefulWidget {
   static String? serviceType;
   static String? firstName;
   static String? nickName;
+  static var selectedType;
 
   @override
   _DeliveryDataState createState() {
@@ -53,7 +54,7 @@ class _DeliveryDataState extends State<DeliveryData> {
               onBoxStateChanged: (change) => true,
               items: _dropdownTypeItem,
               onChanged: onChangeDropdownTests,
-              value: _selectedTest,
+              value: DeliveryData.selectedType,
               hint:
                   '${AppLocalization.of(context)?.getTranslatedValue('locating')}',
             ),
@@ -73,6 +74,7 @@ class _DeliveryDataState extends State<DeliveryData> {
               onChanged: (value) {
                 DeliveryData.serviceType = value;
               },
+              hintText: 'اكتب الخدمة التي تقدمها',
               controller: serviceTypeCon,
               keyboardType: TextInputType.text,
               textInputAction: TextInputAction.next,
@@ -132,7 +134,7 @@ class _DeliveryDataState extends State<DeliveryData> {
               onBoxStateChanged: (change) => true,
               items: _dropdownTypeItem,
               onChanged: onChangeDropdownTests,
-              value: _selectedTest,
+              value: DeliveryData.selectedType,
               hint:
                   '${AppLocalization.of(context)?.getTranslatedValue('area')}',
             ),
@@ -144,7 +146,7 @@ class _DeliveryDataState extends State<DeliveryData> {
               onBoxStateChanged: (change) => true,
               items: _dropdownTypeItem,
               onChanged: onChangeDropdownTests,
-              value: _selectedTest,
+              value: DeliveryData.selectedType,
               hint:
                   '${AppLocalization.of(context)?.getTranslatedValue('city')}',
             ),
@@ -161,7 +163,7 @@ class _DeliveryDataState extends State<DeliveryData> {
     {'type': 'مؤسسة'}
   ];
   late List<DropdownMenuItem> _dropdownTypeItem;
-  var _selectedTest;
+  // var _selectedTest;
   List<DropdownMenuItem> buildDropdownTypeItems(List testList) {
     List<DropdownMenuItem> items = [];
     for (var i in testList) {
@@ -177,7 +179,7 @@ class _DeliveryDataState extends State<DeliveryData> {
 
   onChangeDropdownTests(selectedTest) {
     setState(() {
-      _selectedTest = selectedTest;
+      DeliveryData.selectedType = selectedTest;
     });
   }
 }
