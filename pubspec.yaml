@@ -50,10 +50,15 @@ dependencies:
   dropdown_below: ^1.0.2
   animated_text_kit:
   simple_star_rating:
+
   custom_navigation_bar:
   bloc: ^7.2.1
   flutter_bloc: ^7.3.1
-  dio: ^4.0.4
+  dio:
+  intl:
+  flutter_polyline_points:
+  google_maps_flutter:
+  geolocator:
 
   
 dev_dependencies:

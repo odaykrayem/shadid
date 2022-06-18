@@ -35,6 +35,7 @@ class _UserHomeState extends State<UserHome> {
     double widthNavBar = MediaQuery.of(context).size.width;
     double heightNavBar = MediaQuery.of(context).size.height;
 
+
     return SafeArea(
       child: Scaffold(
           resizeToAvoidBottomInset: false,
@@ -49,7 +50,7 @@ class _UserHomeState extends State<UserHome> {
                       return UserMainPage();
                     }
                     if (indexPage == 1) {
-                      return Orders();
+                      return Orders(selectedOrderType: OrderType.existing,);
                     }
                     if (indexPage == 2) {
                       return const Massages();
@@ -58,6 +59,29 @@ class _UserHomeState extends State<UserHome> {
                   },
                 ),
 
+   /* return Scaffold(
+        resizeToAvoidBottomInset: false,
+        backgroundColor: Colors.white,
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Expanded(
+              child: Builder(
+                builder: (context) {
+                  if (indexPage == 0) {
+                    return UserMainPage();
+                  }
+                  if (indexPage == 1) {
+                    return Orders(
+                      selectedOrderType: OrderType.existing,
+                    );
+                  }
+                  if (indexPage == 2) {
+                    return const Massages();
+                  }
+                  return const MyAccount();
+                },
+>>>>>>> origin/select_service_ui*/
               ),
               SizedBox(
                 height: 110.0,

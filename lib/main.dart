@@ -10,7 +10,15 @@ import 'package:shadid/model/cacheHelper.dart';
 import 'package:shadid/model/dioHelper.dart';
 import 'package:shadid/view/auth/register.dart';
 import 'package:shadid/view/pages/captain_pages/captain_home.dart';
+import 'package:shadid/view/pages/select_lang.dart';
+import 'package:shadid/view/pages/splash.dart';
+import 'package:shadid/view/pages/user_pages/chat.dart';
+import 'package:shadid/view/pages/user_pages/orders.dart';
+import 'package:shadid/view/pages/user_pages/select_service_bot.dart';
+import 'package:shadid/view/pages/user_pages/tracking_bot.dart';
 import 'package:shadid/view/pages/user_pages/user_home.dart';
+
+import 'view/pages/user_pages/error_msg.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -66,7 +74,9 @@ class _MyAppState extends State<MyApp> {
         fontFamily: 'Tajawal',
       ),
 
-      home: CaptainHome(),
+
+      home: Splash(),
+
 
       locale: _locale,
       supportedLocales: [

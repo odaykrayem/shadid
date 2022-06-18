@@ -94,8 +94,40 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             fit: BoxFit.cover,
 
                           ),
+
                           const SizedBox(
-                            height: 30.0,
+                            height: 75.0,
+/*=======
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ),
+            ),
+            const SizedBox(
+              height: 75.0,
+            ),
+            Expanded(
+              flex: 1,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: List.generate(
+                      contents.length,
+                      (int index) => _buildDots(index: index),
+                    ),
+                  ),
+                  _currentPage + 1 == contents.length
+                      ? Padding(
+                          padding: const EdgeInsets.only(
+                            // bottom: 120.0, //this value make an overflow on 5 inches screens
+                            bottom: 100.0,
+                            right: 20.0,
+                            left: 20.0,
+>>>>>>> origin/select_service_ui*/
                           ),
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 20.0),

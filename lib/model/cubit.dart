@@ -62,7 +62,11 @@ class RegisterUserCubit extends Cubit<RegisterUserStates> {
       },
     ).then((value) {
       userData = UserData.fromJson(value?.data);
-      debugPrint(value?.data);
+
+      print('33333333333333');
+      print(value!.data);
+
+      print('33333333333333');
       emit(RegisterUserSuccessState(userData));
     }).catchError((error) {
       print(error.toString());

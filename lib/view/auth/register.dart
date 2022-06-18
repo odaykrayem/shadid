@@ -46,7 +46,7 @@ class _RegisterState extends State<Register> {
             showToast(text: 'تم تسجيل الرقم سيتم التحقق منه');
             // debugPrint(state.userData.api_token);
             // debugPrint(state.userData.isNew.toString());
-            // CacheHelper.saveData(key: 'isNew', value: state.userData.isNew);
+             CacheHelper.saveData(key: 'isNew', value: state.userData.isNew);
             // CacheHelper.saveData(
             //     key: 'phone', value: "${state.userData.phone}");
             // CacheHelper.saveData(

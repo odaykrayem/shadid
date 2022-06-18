@@ -9,7 +9,7 @@
     "next": "التالي",
     "startNow": "ابدأ الآن",
     "createAccount": "انشاء حساب",
-    "hi": "مرحبا بك",
+    "hi": "مرحباً بك",
     "enterPhone": "أدخل رقم هاتفك للتحقق",
     "user": "مستخدم",
     "captain": "كابتن",
@@ -116,7 +116,7 @@
     "ifYouAuthorizedCar": "إذا كنت مفوضاً على السيارة (اختياري)",
     "register": "تسجيل",
     "makeSureUploadReqImg": "تأكد من رفع جميع الصور المطلوبة",
-<<<<<<< HEAD
+
     "searchLog": "أحدث عمليات البحث",
     "emptyLog": "السجل فارغ",
     "recomendedServices": "الخدمات الأكثر طلباً",
@@ -128,8 +128,7 @@
     "youWillBeNotified": "سيتم إعلامك عندما تبدأ في تلقي عروض الأسعار",
     "offersAndPrices": "العروض و الأسعار",
     "latestOrders": "أحدث الطلبات",
-    "previousOrders": "الطلبات السابقة"
-=======
+
     "completed": "مكتمل",
     "excluded": "مستبعد",
     "loadingToDone": "جاري التنفيذ",
@@ -151,6 +150,27 @@
     "previousMassages": "الرسائل السابقة",
     "minute": "دقيقة",
     "hour": "ساعة",
-    "day": "يوم"
->>>>>>> c08d06da6b652ebe50bcaa7c31ee099a4c46e3b0
+    "day": "يوم",
+
+    "previousOrders": "الطلبات السابقة",
+    "startOver": "البدء من جديد",
+    "goodEveningBotMsg": "مساء الخير",
+    "howCanServeBotMsg": "كيف أقدر أخدمك اليوم ؟",
+    "myPreviousOrders": "طلباتي السابقة",
+    "newOrder": "طلب جديد",
+    "iNeedHelp": "أحتاج إلى مساعدة",
+    "whatServiceDoYouWantBotMsg": "ماالخدمة التي تريدها ؟",
+    "technicalSupport": "الدعم الفني",
+    "paymentFailed": "فشلت عملية الدفع",
+    "paymentFailedMsg": "لم نستطع معالجة عملية الدفع يرجى مراجعة \n معلومات الدفع الخاصة بك و \n المحاولة مرة أخرى",
+    "tryAgain": "المحاولة مرة أخرى",
+    "cancel": "إلغاء",
+    "delivered": "تم التوصيل",
+    "generateInvoice": "أصدرلي فاتورة",
+    "payTheAmount": "دفع المبلغ",
+    "orderTracking": "تتبع الطلب",
+    "deliveryInvoice": "فاتورة توصيل",
+    "messageIsDisabled": "الرسالة معطلة"
+
+
 }

@@ -1,31 +1,43 @@
 // ignore_for_file: non_constant_identifier_names, file_names, prefer_typing_uninitialized_variables
 
 class UserData {
-  dynamic id;
-  dynamic phone;
-  dynamic fullName;
-  dynamic api_token;
-  dynamic email;
-  dynamic type;
-  dynamic service;
-  dynamic isNew;
-  dynamic balance;
-  dynamic user_image;
-  dynamic stars_average;
+  int id;
+  String? phone;
+  String? fullName;
+  String? api_token;
+  String? email;
+  String? type;
+  String? service;
+  bool isNew;
+  String? balance;
+  String?user_image;
+  String? stars_average;
 
-  UserData.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    phone = json['phone_number'];
-    fullName = json['name'];
-    api_token = json['api_token'];
-    email = json['email'];
-    type = json['type'];
-    service = json['service'];
-    isNew = json['isnew'];
-    balance = json['balance'];
-    user_image = json['user_image'];
-    stars_average = json['stars_average'];
-  }
+
+
+
+    UserData({
+     required this.id,
+
+     required this.isNew,
+
+    }
+
+        );
+
+
+
+
+  // ignore: empty_constructor_bodies
+  factory UserData.fromJson(Map<String, dynamic> json) {
+   return UserData(
+     id : json['id'] as int,
+
+
+    isNew : json['isnew'] as bool,
+
+
+   );}
 }
 
 class CaptainData {
